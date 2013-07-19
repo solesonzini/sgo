@@ -1,0 +1,20 @@
+<div style="position:absolute; text-decoration: none;left:35px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+Editar</div>
+<% a=params[:valor] %>
+<% @b=a.to_i %>
+<br/><br/><br/>
+<% form_tag :action => 'update', :id => @hclinica do %>
+  <%= render :partial => 'form' %>
+  <br/>
+  <center><%= submit_tag 'Aceptar',:id => @hclinica  %></center>
+<% end %>
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:260px;width:168px; height:300px;left:60px;">
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Turnos', :action => 'new' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+</div>
+<br/>
+<center><%= link_to 'Volver a Listado de Historia Clínica', :action => 'list', :valor=> @b %></center>

@@ -1,0 +1,26 @@
+<div style="position:absolute; text-decoration: none;left:45px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+Ver Práctica</div>
+<br/>
+<div style="position: relative; left: 530px; top:50px;">
+<table cellspacing='10' border='0' style="border-style:solid;"> 
+<tr style="background-color: #DDDDF1; font-size:12px;">
+    <td align="center"><center><b>Información</b></center></td>
+<% for column in Practica.content_columns %>
+<tr><td><%= column.human_name %>:</b>
+<%=h @practica.send(column.name) %></td></tr>
+<% end %>
+</table>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:260px;width:168px; height:300px;left:60px;">
+
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Listado de Prácticas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+
+</div>
+<center><%= link_to 'Edit', :action => 'edit', :id => @practica %> |
+<%= link_to 'Back', :action => 'list' %></center>

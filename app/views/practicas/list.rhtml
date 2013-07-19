@@ -1,0 +1,43 @@
+<div style="position:absolute; text-decoration: none;left:35px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+ Listado de Prácticas </div>
+<br/>
+<br/>
+<br/>
+<div style="position: relative; left: 300px; top:-30px;">
+<table cellspacing='10' border='0' style="border-style:solid; letter-spacing: 2px;"> 
+ <tr style="background-color: #DDDDF1;">
+    <td align="center"><center><b>Código</b></center>
+    <td align="center"><center><b>Nombre</b></center>
+	
+	</tr>
+	<tr>
+		<td>
+		<% for practica in @practicas %>
+  <tr>
+  <% for column in Practica.content_columns %>
+    <td><%=h practica.send(column.name) %></td>
+  <% end %>
+    <td><%= button_to 'Ver', :action => 'show', :id => practica %></td>
+    <td><%= button_to 'Editar', :action => 'edit', :id => practica %></td>
+    <td><%= button_to 'Eliminar', { :action => 'destroy', :id => practica }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:270px;width:168px; height:300px;left:60px;">
+
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Agregar Practica', :action => 'new' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+
+</div>
+
+<div style="position:absolute;left:1060px; top:650px;">
+<%= link_to 'Página Anterior', { :page => @practica_pages.current.previous } if @practica_pages.current.previous %>
+<%= link_to 'Próxima Página', { :page => @practica_pages.current.next } if @practica_pages.current.next %> 
+</div>

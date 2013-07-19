@@ -1,0 +1,59 @@
+<div style="position:absolute;left:50px;"><%= error_messages_for 'hclinica' %></div>
+<% a=params[:valor] %>
+<% @b=a.to_i %>
+
+<!--[form:hclinica]-->
+<div style="position: relative; left: 300px; top:0px;">
+<table cellspacing='10' border='0' style="border-style:solid; letter-spacing: 2px;">
+<tr>
+<td>
+<label for="hclinica_codprac">Tipo de Práctica</label><br/>
+<select id="hclinica_codprac" name="hclinica[codprac]" align ='center'>
+<% @practicas.each do |p| %>
+  <option> <%= p.codpractica %> - <%= p.nombre %></option>
+  <%end%>
+  </select>
+</td>
+
+<td>
+<label for="hclinica_dientese">Dientes Existentes</label><br/>
+<%= text_field 'hclinica', 'dientese'  %></td>
+</tr>
+<tr>
+<td>
+<label for="hclinica_fecha">Fecha</label><br/>
+<%= date_select 'hclinica', 'fecha', :order => [:day, :month, :year], :start_year => 2009  %></td>
+<td>
+<label for="hclinica_dientesf">Dientes Faltantes</label><br/>
+<%= text_field 'hclinica', 'dientesf'  %></td>
+</tr>
+<tr>
+<td>
+<label for="hclinica_observacion">Observación</label><br/>
+<textarea id="hclinica_observacion" name="hclinica[observacion]" cols="25" rows="8" value="<%= @hclinica.observacion%>" ></textarea></td>
+<td>
+<label for="hclinica_totaltemp">Total Temporarios</label><br/>
+<%= text_field 'hclinica', 'totaltemp'  %></td>
+</tr>
+<tr>
+<td>
+<label for="hclinica_idpersona">ID Persona</label><br/>
+  <input id="hclinica_idpersona" name="hclinica[idpersona]" size="3" type="text" value="<%= @b%>" />
+</td>
+<td >
+<label for="hclinica_totalperma">Total Permanentes</label><br/>
+<%= text_field 'hclinica', 'totalperma'  %></td>
+</tr>
+<tr>
+<td>
+ <label for="hclinica_medicamentos">Medicamentos que Ingiere</label><br/>
+<%= text_field 'hclinica', 'medicamentos'  %></td>
+<td>
+<label for="hclinica_dientecolor">Color de Diente</label><br/>
+<%= text_field 'hclinica', 'dientecolor'  %>
+</td>
+</tr>
+</table>
+</div>
+<!--[eoform:hclinica]-->
+

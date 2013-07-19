@@ -1,0 +1,20 @@
+<div style="position:absolute; text-decoration: none;left:45px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+Editar Práctica</div>
+<br/>
+<% form_tag :action => 'update', :id => @practica do %>
+  <%= render :partial => 'form' %>
+  <br/><center><%= submit_tag 'Editar' %></center>
+<% end %>
+<br/><br/><br/><br/><br/><br/><br/>
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:260px;width:168px; height:300px;left:60px;">
+
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Agregar Práctica', :action => 'new' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+
+</div>
+<center><%= link_to 'Ver', :action => 'show', :id => @practica %> |
+<%= link_to 'Volver', :action => 'list' %></center>

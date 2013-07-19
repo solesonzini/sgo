@@ -1,0 +1,32 @@
+<div style="position:absolute; text-decoration: none;left:35px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+Ver Registro</div>
+<% a=params[:valor] %>
+<% @b=a.to_i %>
+<div style="position: relative; left: 325px; top:30px;">
+<table cellspacing='10' border='0' style="border-style:solid; letter-spacing: 2px;" width="50%"> 
+ <tr style="background-color: #DDDDF1; font-size:12px;">
+    <td align="center"><center><b>- Información -</b></center></td>
+	</tr>
+<% for column in Hclinica.content_columns %>
+<tr><td>
+<%= column.human_name %>:</b> 
+<%=h @hclinica.send(column.name) %></td></tr>
+<% end %>
+
+
+</table>
+<br/><br/><br/>
+</div>
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:300px;width:168px; height:300px;left:60px;">
+
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Agregar Turno', :action => 'new' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+
+</div>
+<center><%= link_to 'Volver a Listado de Historia Clinicas',:controller=>'hclinicas',  :action => 'list', :valor=>@hclinica.idpersona%> </center>
+
+

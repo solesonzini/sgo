@@ -1,0 +1,39 @@
+<div style="position:absolute; text-decoration: none;left:70px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+Información de<br/> Turno </div>
+ 
+ <% w=params[:id]%>
+ <% @e=w.to_i%>
+<div style="position: relative; left: 380px; top:100px;">
+<table cellspacing='10' border='0' style="border-style:solid; letter-spacing: 2px;"> 
+ <tr style="background-color: #DDDDF1;">
+    <td align="center"><center><b>Fecha y Hora</b></center>
+    <td align="center"><center><b>Nombre y Apellido</b></center>
+	</tr>
+	<tr>
+	<% @turnos.each do | turno |%>
+	<% if turno.id == @e %> 
+		<td>
+			<%= turno.hora %>
+		</td>
+		<td>
+			<%= turno.nombre %>
+		</td>
+	</tr>
+	<% end %>
+	<% end %>
+</table>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:260px;width:168px; height:300px;left:60px;">
+
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Agregar Turno', :action => 'new' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+
+</div>
+<center><%= link_to 'Editar', :action => 'edit', :id => @turno %> |
+<%= link_to 'Volver', :action => 'list' %></center>

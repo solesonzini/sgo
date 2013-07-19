@@ -1,0 +1,14 @@
+<div class="errorExplanation"><%= error_messages_for 'turno' %></div>
+
+<!--[form:turno]-->
+<div style="position: relative; left: 460px; top:10px;">
+<table cellspacing='10' border='0' style="border-style:solid; letter-spacing: 2px;"> 
+<tr><td><label for="turno_hora">Fecha y Hora:</label><br/>
+<%= datetime_select 'turno', 'hora', :minute_step => 15,:start_year => 2009  %></td></tr>
+
+<tr><td><label for="turno_nombre">Nombre y Apellido:</label><br/>
+<%= text_field 'turno', 'nombre'  %></td></tr>
+</table>
+</div>
+<!--[eoform:turno]-->
+

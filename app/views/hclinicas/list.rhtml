@@ -1,0 +1,53 @@
+<div style="position:absolute; text-decoration: none;left:35px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+ Listado de <br/>Historias Clínicas </div>
+<% a=params[:valor] %>
+<% @b=a.to_i %>
+
+<br/><br/><br/>
+<div style="position: relative; left: 200px; top:-30px;">
+<table cellspacing='10' border='0' style="border-style:solid;" width="80%"> 
+<tr style="background-color: #DDDDF1; font-size:12px;">
+    <td align="center" width="30%"><center><b>Código Práctica</b></center></td>
+    <td align="center" width="10%"><center><b>Fecha</b></center></td>
+	<td align="center" width="30%"><center><b>Observación</b></center></td>
+</tr>
+
+   <% @hclinicas.each do |hclinicas|%>
+  <% if hclinicas.idpersona == @b %>
+  <tr>
+  
+  <td style="border-style:doted;border-color:#2E2E2E;" width="20%">
+      <center>
+               <%= hclinicas.codprac %>
+      </center>
+  </td>
+    <td style="border-style:doted;border-color:#2E2E2E;">
+      <center>
+                <%= hclinicas.fecha %>
+      </center>
+  </td>
+    <td style="border-style:doted;border-color:#2E2E2E;">
+      <center>
+                <%= hclinicas.observacion %>
+      </center>
+  </td>
+   <td width="10%"><%= button_to 'Información', :action => 'show', :id => hclinicas, :valor=>@b%></td>
+    <td width="10%"><%= button_to 'Modificar', :action => 'edit', :id => hclinicas, :valor=>@b%></td>        
+</tr>
+<% end %>
+<% end %>
+</table>
+<br/><br/><br/>
+<div style="position:absolute; left:340px;"><%= link_to 'Nuevo Registro', :action => 'new', :valor=> @b  %> | <%= link_to 'Volver a Listado de Paciente',:controller=>'personas',  :action => 'list'%></div>
+</div>
+<%= link_to 'Página Anterior', { :page => @hclinica_pages.current.previous } if @hclinica_pages.current.previous %>
+<%= link_to 'Próxima Página', { :page => @hclinica_pages.current.next } if @hclinica_pages.current.next %> 
+
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:270px;width:168px; height:300px;left:20px;">
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Agregar Nuevo Registro', :action => 'new', :valor=> @b %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+</div>

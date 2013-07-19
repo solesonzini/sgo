@@ -1,0 +1,67 @@
+<div style="position:absolute; text-decoration: none;left:35px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+ Listado de Pacientes </div>
+
+<br/><br/><br/>
+<div style="position: relative; left: 220px; top:-30px;">
+<table cellspacing='10' border='0' style="border-style:solid;" width="80%"> 
+<tr style="background-color: #DDDDF1; font-size:14px;">
+    <td align="center" width="20%"><center><b>Nombre</b></center></td>
+    <td align="center" width="20%"><center><b>Apellido</b></center></td>
+	<td align="center" width="40%"><center><b>Dirección</b></center></td>
+    <td align="center" width="40%"><center><b>Tel./Cel.</b></center></td>
+	<td align="center" width="20%"><center><b>Tipo</b></center></td>
+</tr>
+ 
+   <% @personas.each do |persona|%>
+<tr>
+  <td style="border-style:doted;border-color:#2E2E2E;">
+      <center>
+                <%= persona.nombre %>
+      </center>
+  </td>
+  <td style="border-style:doted;border-color:#2E2E2E;">
+    <center>
+        <%= persona.apellido%>
+    </center>
+  </td>
+  <td style="border-style:doted;border-color:#2E2E2E;">
+    <center>
+        <%= persona.direccion%>
+    </center>
+  </td>
+  <td style="border-style:doted;border-color:#2E2E2E;">
+    <center>
+        <%= persona.telefono%>
+    </center>
+  </td>
+    <td style="border-style:doted;border-color:#2E2E2E;">
+    <center>
+        <%= persona.tipo%>
+    </center>
+  </td>
+	<td><%= button_to 'Historia Clínica', :controller=>'hclinicas', :action => 'list', :id => persona, :valor=>persona.id %></td>
+    <td><%= button_to 'Información', :action => 'show', :id => persona %></td>
+	<td><%= button_to 'Modificar', :action => 'edit', :id => persona %></td>
+    <td><%= button_to 'Eliminar', { :action => 'destroy', :id => persona }, :confirm => 'Está seguro de Eliminar el Registro de Pacientes?', :method => :post %></td>
+  </tr>
+
+<% end %>
+</table>
+<br/><br/><br/><br/><br/><br/>
+<!--<div style="position:absolute; left:250px;"><#%= button_to 'Agregar Paciente', :action => 'new' %></div>-->
+</div>
+<%= link_to 'Página Anterior', { :page => @persona_pages.current.previous } if @persona_pages.current.previous %>
+<%= link_to 'Próxima Página', { :page => @persona_pages.current.next } if @persona_pages.current.next %> 
+
+<br />
+
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:260px;width:168px; height:300px;left:10px;">
+
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Agregar Paciente', :action => 'new' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+
+</div>

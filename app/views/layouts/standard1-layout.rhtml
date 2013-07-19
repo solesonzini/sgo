@@ -1,0 +1,52 @@
+<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>- SGO - Sistema de Gestion Odontologica -</title>
+<%= stylesheet_link_tag 'default' %>
+<script language="JavaScript1.2">
+
+var isnMonth = new
+Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+var isnDay = new
+Array("Sunday","Lunes","Martes","Miercoles","Jueves","Viernes","S�bado","Domingo");
+today = new Date () ;
+Year=today.getYear();
+if (Year < 1000)
+Year+=1900
+Date=today.getDate();
+function setdate(){
+document.title="SGO - Sistema Gestion Odontologica  -   "+isnDay[today.getDay()]+", "+isnMonth[today.getMonth()]+" "+Date+", "+Year+""
+}
+if (document.all)
+setdate()
+else if (document.getElementById)
+window.onload=setdate
+</script>
+</head>
+<body link="#ffffff" alink="#ffffff" vlink="#ffffff">
+<div style="background:url(/images/img1.jpg) repeat-x; color:white; height:172px;" >
+<div style="position:absolute; left:300px;"><img src=" /images/img2.jpg" />
+</div>
+<div id="header" style="position: absolute; left:300px;">
+	
+	<h1>- S.G.O.- </h1>
+	<h2>Sistema de Gestión Odontológica</h2> 
+	
+</div></div>
+<div style="position:relative;top:10px;left:425px; "><img src="/images/img4.jpg"/> &nbsp;&nbsp;
+<a href="/personas/list"style="text-decoration: none; position:absolute; left:5px; top:10px;"> <h4>-Pacientes-</h4> </a>
+<img src="/images/img4.jpg"/> &nbsp;&nbsp;
+<a href="/turnos/list"style="text-decoration: none; position:absolute; left:250px; top:10px;"> <h4>-Turnos-</h4> </a>
+</div>
+
+<%=yield%>
+</div>
+<div style="position: absolute; repeat-x; top: 850px; width:100%;">&nbsp;
+<div style="background: url(/images/img3.jpg); text-align: center;">
+<h5>Consultora SBC - Todos los Derechos Reservados - 2009 -</h5></div></div>
+</body>
+</html>

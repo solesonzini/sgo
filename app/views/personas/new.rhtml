@@ -1,0 +1,20 @@
+
+<div style="position:absolute; text-decoration: none;left:35px; top:200px; font:Arial; font-size:20px;color:#009933;letter-spacing: 8px">
+Agregar Nuevo <br/>Paciente</div>
+
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <center><%= submit_tag "Agregar" %></center>
+<% end %>
+<center><%= link_to 'Volver', :action => 'list' %></center>
+<div style="background-image:url(/images/barra.bmp);no-repeat; position:absolute; top:280px;width:168px; height:300px;left:60px;">
+
+<table  cellspacing='20' style="position:absolute; left: 0px; top:60px; font:Arial; font-size:14px;color:#009933;letter-spacing: 3px; text-decoration:none;">
+<tr><td align='center'><%= link_to 'Listado de Pacientes', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Pacientes', :controller=>'personas', :action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Prácticas', :controller=>'practicas',:action => 'list' %><br/></td></tr>
+<tr><td align='center'><%= link_to 'Obra Sociales', :controller=>'obrasociales', :action => 'list' %><br/></td></tr>
+</table>
+
+</div>
